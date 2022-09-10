@@ -25,7 +25,7 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        related_name='posts'
+        related_name='posts_group'
     )
 
     def __str__(self):
