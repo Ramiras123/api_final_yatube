@@ -25,7 +25,7 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        related_name='posts_group'
+        related_name='posts'
     )
 
     def __str__(self):
@@ -46,7 +46,7 @@ class Follow(models.Model):
     user = models.ForeignKey(User,
                              on_delete=models.CASCADE,
                              related_name='follower',
-                             verbose_name='Подписчик')
+                             verbose_name='Подписчик',)
     following = models.ForeignKey(User,
                                   on_delete=models.CASCADE,
                                   related_name='following',
@@ -56,6 +56,6 @@ class Follow(models.Model):
         constraints = (
             models.UniqueConstraint(
                 fields=('user', 'following'),
-                name='unique_follow'
+                name='unique_follow',
             ),
         )
